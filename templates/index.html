@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<!From https://codepen.io/frytyler/pen/EGdtg>
+<head>
+    <meta charset="UTF-8">
+    <title>ML API</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+<div class="login">
+    <div><h1 style="color: orangered;font-family: math"> Car price calculator </h1>
+    </div>
+    <! Main Input For Receiving Query to our ML >
+    <form action="{{ url_for('predict')}}" method="post">
+        <input id="kms" type="number" name="kms" placeholder="KMs Driven" required="required"/>
+        <input type="number" name="mileage" placeholder="Mileage" required="required"/>
+        <input type="number" name="engine_cc" placeholder="Engine CC" required="required"/>
+        <input type="number" name="max_power" placeholder="Max Power" required="required"/>
+        <input type="number" name="seats" placeholder="No.of Person can travel" required="required"/>
+        <input type="number" name="years" placeholder="Model Year" required="required"/>
+        <select id="fuel" name="fuel">
+            <option value="">Select Fuel</option>
+            <option value="petrol">Petrol</option>
+            <option value="diesel">Diesel</option>
+            <option value="lpg">LPG</option>
+        </select>
+        <select id="seller_type" name="seller_type">
+            <option value="">Select Seller Type</option>
+            <option value="individual">Individual</option>
+            <option value="trustmark">TrustMark</option>
+        </select>
+        <select id="transmission" name="transmission">
+            <option value="">Select Transmission</option>
+            <option value="manual">Manual</option>
+            <option value="auto">Automation</option>
+        </select>
+        <select id="owner" name="owner">
+            <option value="">Select Owner</option>
+            <option value="first">First</option>
+            <option value="second">Second</option>
+            <option value="third">Third</option>
+            <option value="fourth">Fourth</option>
+        </select>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+    <br>
+    <br>
+    {{ prediction_text }}
+</div>
+</body>
+</html>
