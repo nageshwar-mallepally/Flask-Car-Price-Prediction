@@ -1,4 +1,4 @@
-# flask-car-price-predictor end-to-end
+# Flask-car-price-predictor end-to-end
 
 This is project predicts the car price based on the historical data.
 
